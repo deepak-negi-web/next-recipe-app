@@ -1,7 +1,9 @@
 import React from "react";
-import { Three } from "../Components";
-import SocialIcon from "../../UI/Banner/BannerIcon/SocialIcon/SocialIcon";
-import { Link } from "react-router-dom";
+import Image from "next/image";
+import { SocialIcon } from "../Components";
+// import SocialIcon from "../../UI/Banner/BannerIcon/SocialIcon/SocialIcon";
+import Link from "next/link";
+
 const home = (props) => (
   <React.Fragment>
     <section className="hero-banner">
@@ -11,25 +13,25 @@ const home = (props) => (
             Foods the <br /> most precious things
           </h1>
           <div className="d-sm-flex flex-wrap">
-            <Link className="button button-hero button-shadow" to="/search">
+            <Link className="button button-hero button-shadow" href="/search">
               <i className="fas fa-search mr-1" /> Search Recipes
             </Link>
             <Link
               className="button button-hero button-shadow"
-              to="/post"
+              href="/post"
               style={{ marginLeft: "10px" }}
             >
               <i className="fas fa-edit mr-1" /> Write Recipes
             </Link>
           </div>
-          <DecorIcon />
+          {/* <DecorIcon /> */}
         </div>
         <div className="hero-right">
           <div>
             <div className="sideImage">
-              <img
+              <Image
                 className="img-fluid"
-                src={require("../../../Assests/banner/hero-banner-sm.png")}
+                src="/Assests/banner/hero-banner-sm.png"
                 alt=""
               />
             </div>
@@ -48,9 +50,9 @@ const home = (props) => (
         <div className="row">
           <div className="col-sm-6 col-lg-4 mb-4 mb-lg-0">
             <div className="card-blog">
-              <img
+              <Image
                 className="card-img rounded-0"
-                src={require("../../../Assests/blog/blog1.png")}
+                src="/Assests/blog/blog1.png"
                 alt=""
               />
               <div className="blog-body">
@@ -66,9 +68,9 @@ const home = (props) => (
 
           <div className="col-sm-6 col-lg-4 mb-4 mb-lg-0">
             <div className="card-blog">
-              <img
+              <Image
                 className="card-img rounded-0"
-                src={require("../../../Assests/blog/blog2.png")}
+                src="/Assests/blog/blog2.png"
                 alt=""
               />
               <div className="blog-body">
@@ -84,9 +86,9 @@ const home = (props) => (
 
           <div className="col-sm-6 col-lg-4 mb-4 mb-lg-0">
             <div className="card-blog">
-              <img
+              <Image
                 className="card-img rounded-0"
-                src={require("../../../Assests/blog/blog3.png")}
+                src="/Assests/blog/blog3.png"
                 alt=""
               />
               <div className="blog-body">

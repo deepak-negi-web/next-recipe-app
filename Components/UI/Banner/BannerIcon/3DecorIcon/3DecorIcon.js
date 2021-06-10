@@ -32,7 +32,7 @@ const banner = (props) => {
       <ul className="hero-info  d-lg-block">
         <li>
           <img
-            src={require("../../../../../Assests/banner/recipe.png")}
+            src="/Assests/banner/recipe.png"
             alt=""
             style={{
               height: "47px",
@@ -43,9 +43,8 @@ const banner = (props) => {
         </li>
         <li>
           <img
-            src={require("../../../../../Assests/banner/" +
-              props.fullRecipe["genre"] +
-              ".png")}
+            src={`/Assests/banner/"${props.fullRecipe["genre"]}
+              ".png`}
             alt=""
             style={{
               height: "47px",
@@ -56,7 +55,7 @@ const banner = (props) => {
         </li>
         <li>
           <img
-            src={require("../../../../../Assests/banner/star.png")}
+            src="/Assests/banner/star.png"
             alt=""
             style={{
               height: "47px",
@@ -72,7 +71,7 @@ const banner = (props) => {
       <ul className="hero-info  d-lg-block">
         <li>
           <img
-            src={require("../../../../../Assests/banner/fas-service-icon.png")}
+            src="/Assests/banner/fas-service-icon.png"
             alt=""
             style={{
               height: "37px",
@@ -83,7 +82,7 @@ const banner = (props) => {
         </li>
         <li>
           <img
-            src={require("../../../../../Assests/banner/recipe.png")}
+            src="/Assests/banner/recipe.png"
             alt=""
             style={{
               height: "37px",
@@ -94,7 +93,7 @@ const banner = (props) => {
         </li>
         <li>
           <img
-            src={require("../../../../../Assests/banner/Lunch.png")}
+            src="/Assests/banner/Lunch.png"
             alt=""
             style={{
               height: "37px",

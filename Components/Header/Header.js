@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "../../Assests/Logo1.jpg";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 import { useAuth } from "../../contexts/authContext";
 import "./Header.css";
 const Header = (props) => {
@@ -10,13 +9,13 @@ const Header = (props) => {
       <div className="main_menu">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container box_1620">
-            <NavLink className="navbar-brand logo_h" to="/">
+            <Link className="navbar-brand logo_h" href="/">
               <img
-                src={logo}
+                src="/Assests/Logo1.jpg"
                 alt=""
                 style={{ height: "80px", width: "160px" }}
               />
-            </NavLink>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -36,9 +35,9 @@ const Header = (props) => {
             >
               <ul className="nav navbar-nav menu_nav justify-content-end">
                 <li className="nav-item">
-                  <NavLink
+                  <Link
                     className="nav-link"
-                    to="/"
+                    href="/"
                     exact
                     activeStyle={{
                       color: "#1f57f3ec",
@@ -47,55 +46,55 @@ const Header = (props) => {
                   >
                     <i className="fas fa-home mr-1" />
                     Home
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink
+                  <Link
                     className="nav-link"
-                    to="/about"
+                    href="/about"
                     activeStyle={{
                       color: "#1f57f3ec",
                       fontWeight: "bold",
                     }}
                   >
                     <i className="fas fa-address-card mr-1" /> About
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink
+                  <Link
                     className="nav-link"
-                    to="/search"
+                    href="/search"
                     activeStyle={{
                       color: "#1f57f3ec",
                       fontWeight: "bold",
                     }}
                   >
                     <i className="fas fa-search mr-1" /> Search Recipe
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink
+                  <Link
                     className="nav-link"
-                    to="/recipes"
+                    href="/recipes"
                     activeStyle={{
                       color: "#1f57f3ec",
                       fontWeight: "bold",
                     }}
                   >
                     <i className="fas fa-pizza-slice mr-1" /> Recipes
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink
+                  <Link
                     className="nav-link"
-                    to="/post"
+                    href="/post"
                     activeStyle={{
                       color: "#1f57f3ec",
                       fontWeight: "bold",
                     }}
                   >
                     <i className="fas fa-edit mr-1" /> Write Recipe
-                  </NavLink>
+                  </Link>
                 </li>
                 {currentUser ? (
                   <li className="nav-item">
@@ -114,13 +113,10 @@ const Header = (props) => {
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuButton"
                         >
-                          <NavLink
-                            className="dropdown-item"
-                            to="/updateProfile"
-                          >
+                          <Link className="dropdown-item" href="/updateProfile">
                             <i className="fas fa-user-cog mr-1" />
                             Update Profile
-                          </NavLink>
+                          </Link>
                           <button className="dropdown-item" onClick={logout}>
                             <i className="fas fa-sign-out-alt mr-1" />
                             Log out
@@ -131,16 +127,16 @@ const Header = (props) => {
                   </li>
                 ) : (
                   <li className="nav-item">
-                    <NavLink
+                    <Link
                       className="nav-link"
-                      to="/login"
+                      href="/login"
                       activeStyle={{
                         color: "#1f57f3ec",
                         fontWeight: "bold",
                       }}
                     >
                       <i className="fas fa-sign-in-alt mr-1" /> Login
-                    </NavLink>
+                    </Link>
                   </li>
                 )}
               </ul>
