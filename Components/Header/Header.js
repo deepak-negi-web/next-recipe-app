@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { useAuth } from "../../contexts/authContext";
-import "./Header.css";
+import { StyledHeader } from "./styles.js";
+
 const Header = (props) => {
   const { currentUser, logout } = useAuth();
   return (
-    <header className="header_area">
+    <StyledHeader>
       <div className="main_menu">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container box_1620">
@@ -144,7 +145,7 @@ const Header = (props) => {
           </div>
         </nav>
       </div>
-    </header>
+    </StyledHeader>
   );
 };
 

@@ -13,9 +13,16 @@ const firebaseConfig = {
 };
 
 // iniitalize firebase
-const app = firebase.initializeApp(firebaseConfig);
+let app;
+if (!firebase.apps.length) {
+  app = firebase.initializeApp(firebaseConfig);
+  console.log("app in if", app);
+} else {
+  app = firebase.app(); // if already initialized, use that one
+}
 
 export const auth = app.auth();
+
 // firebase storage
 
 const storage = firebase.storage();

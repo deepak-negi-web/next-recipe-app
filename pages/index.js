@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { SocialIcon } from "../Components";
-// import SocialIcon from "../../UI/Banner/BannerIcon/SocialIcon/SocialIcon";
+import { SocialIcon, ThreeDecorIcon } from "../Components/UI/Banner/BannerIcon";
 import Link from "next/link";
 
 const home = (props) => (
-  <React.Fragment>
+  <>
     <section className="hero-banner">
       <div className="hero-wrapper">
         <div className="hero-left">
@@ -14,17 +13,21 @@ const home = (props) => (
           </h1>
           <div className="d-sm-flex flex-wrap">
             <Link className="button button-hero button-shadow" href="/search">
-              <i className="fas fa-search mr-1" /> Search Recipes
+              <>
+                <i className="fas fa-search mr-1" /> Search Recipes
+              </>
             </Link>
             <Link
               className="button button-hero button-shadow"
               href="/post"
               style={{ marginLeft: "10px" }}
             >
-              <i className="fas fa-edit mr-1" /> Write Recipes
+              <>
+                <i className="fas fa-edit mr-1" /> Write Recipes
+              </>
             </Link>
           </div>
-          {/* <DecorIcon /> */}
+          <ThreeDecorIcon />
         </div>
         <div className="hero-right">
           <div>
@@ -32,7 +35,9 @@ const home = (props) => (
               <Image
                 className="img-fluid"
                 src="/Assests/banner/hero-banner-sm.png"
-                alt=""
+                alt="hero"
+                height={500}
+                width={500}
               />
             </div>
           </div>
@@ -53,7 +58,9 @@ const home = (props) => (
               <Image
                 className="card-img rounded-0"
                 src="/Assests/blog/blog1.png"
-                alt=""
+                alt="blog1"
+                height={500}
+                width={500}
               />
               <div className="blog-body">
                 <ul className="blog-info">
@@ -71,7 +78,9 @@ const home = (props) => (
               <Image
                 className="card-img rounded-0"
                 src="/Assests/blog/blog2.png"
-                alt=""
+                alt="blog2"
+                height={500}
+                width={500}
               />
               <div className="blog-body">
                 <ul className="blog-info">
@@ -89,7 +98,9 @@ const home = (props) => (
               <Image
                 className="card-img rounded-0"
                 src="/Assests/blog/blog3.png"
-                alt=""
+                alt="blog3"
+                height={500}
+                width={500}
               />
               <div className="blog-body">
                 <ul className="blog-info">
@@ -104,7 +115,7 @@ const home = (props) => (
         </div>
       </div>
     </section>
-  </React.Fragment>
+  </>
 );
 
 export default home;
