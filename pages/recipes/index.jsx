@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import BannerHeader from "../../UI/Banner/BannerHeader/BannerHeader";
-import axios from "../../../axios-post";
-import Spinner from "../../UI/Spinner/Spinner";
+import { useRouter } from "next/router";
+import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import axios from "../../axios-post";
+import Spinner from "../../Components/UI/Spinner/Spinner";
 
 const FullRecipe = () => {
   const [loadedRecipe, setLoadedRecipe] = useState(null);
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query;
   useEffect(() => {
     if (id) {
       if (!loadedRecipe || (loadedRecipe && loadedRecipe.id !== +id)) {

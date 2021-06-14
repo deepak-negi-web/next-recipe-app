@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import BannerHeader from "../../UI/Banner/BannerHeader/BannerHeader";
-import image from "../../../Assests/banner/hero-banner-sm.png";
-import axios from "../../../axios-post";
-import Spinner from "../../UI/Spinner/Spinner";
+import { useRouter } from "next/router";
+import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import axios from "../../axios-post";
+import Spinner from "../../Components/UI/Spinner/Spinner";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState({
@@ -11,7 +10,7 @@ const Search = () => {
     isClicked: false,
     isFound: true,
   });
-  const history = useHistory();
+  const router = useRouter();
   const recipeSearchHandler = () => {
     window.scrollTo(0, 0);
     setSearchQuery({ ...searchQuery, isClicked: true });
@@ -21,7 +20,7 @@ const Search = () => {
       for (const [key, recipe] of Object.entries(fetchedData)) {
         if (recipe["dishname"] === searchQuery.value) {
           id = key;
-          history.push("/recipes/" + id);
+          router.push("/recipes/" + id);
           break;
         } else {
           setSearchQuery({ ...searchQuery, isClicked: false, isFound: false });
@@ -56,11 +55,7 @@ const Search = () => {
   if (!searchQuery.isClicked) {
     search = (
       <>
-        <BannerHeader
-          pageName={heading}
-          pageDescription={Description}
-          imgPath={image}
-        />
+        <BannerHeader pageName={heading} pageDescription={Description} />
         <section className="blog_area section-margin">
           <div className="container">
             <div className="row">

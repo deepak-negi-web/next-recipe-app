@@ -1,6 +1,6 @@
 import React from "react";
 
-const carousel = (props) => {
+const carousel = () => {
   return (
     <div id="demo" className="carousel slide" data-ride="carousel">
       <ul className="carousel-indicators">
@@ -8,37 +8,37 @@ const carousel = (props) => {
         <li data-target="#demo" data-slide-to="1"></li>
         <li data-target="#demo" data-slide-to="2"></li>
       </ul>
-      <div className="carousel-inner" style={{display: "block"}}>
+      <div className="carousel-inner" style={{ display: "block" }}>
         <div className="carousel-item active">
           <img
-            src={props.image1}
+            src="/Assests/home/featured1.png"
             alt="Los Angeles"
-            style={{width: "100%", height: "500px"}}
+            style={{ width: "100%", height: "500px" }}
           />
           <div className="carousel-caption">
-            <h3 style={{color: "#eeeeee"}}>Yumm Pizza</h3>
+            <h3 style={{ color: "#eeeeee" }}>Yumm Pizza</h3>
             <p>Love at first bite</p>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src={props.image2}
+            src="/Assests/home/featured2.png"
             alt="Chicago"
-            style={{width: "100%", height: "500px"}}
+            style={{ width: "100%", height: "500px" }}
           />
           <div className="carousel-caption">
-            <h3 style={{color: "#eeeeee"}}>Delicious Brownies</h3>
+            <h3 style={{ color: "#eeeeee" }}>Delicious Brownies</h3>
             <p>Feeling downie eat a Brownie</p>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src={props.image3}
+            src="/Assests/home/featured3.png"
             alt="New York"
-            style={{width: "100%", height: "500px"}}
+            style={{ width: "100%", height: "500px" }}
           />
           <div className="carousel-caption">
-            <h3 style={{color: "#eeeeee"}}>Pumpkin Spice Latte</h3>
+            <h3 style={{ color: "#eeeeee" }}>Pumpkin Spice Latte</h3>
             <p>Fresh your day</p>
           </div>
         </div>

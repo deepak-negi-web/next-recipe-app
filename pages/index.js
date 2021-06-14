@@ -3,7 +3,7 @@ import Image from "next/image";
 import { SocialIcon, ThreeDecorIcon } from "../Components/UI/Banner/BannerIcon";
 import Link from "next/link";
 
-const home = (props) => (
+const home = () => (
   <>
     <section className="hero-banner">
       <div className="hero-wrapper">
@@ -38,6 +38,7 @@ const home = (props) => (
                 alt="hero"
                 height={500}
                 width={500}
+                layout="fixed"
               />
             </div>
           </div>

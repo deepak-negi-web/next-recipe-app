@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Input from "../../UI/Input/Input";
-import image from "../../../Assests/banner/hero-banner-sm.png";
-import BannerHeader from "../../UI/Banner/BannerHeader/BannerHeader";
-import { storage } from "../../../Firebase/index";
-import Modal from "../../UI/Modal/Modal";
-import { Link } from "react-router-dom";
-import axios from "../../../axios-post";
+import Link from "next/link";
+import Input from "../../Components/UI/Input/Input";
+import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import { storage } from "../../Firebase/index";
+import Modal from "../../Components/UI/Modal/Modal";
+import axios from "../../axios-post";
 
 const Post = () => {
   const [form, setForm] = useState({
@@ -172,23 +171,19 @@ const Post = () => {
         <div className="container">
           <h3> Submitted </h3>
           <h5>Your recipe is live. See your recipe in Recipe Section</h5>
-          <Link to="/recipes">
+          <Link href="/recipes">
             <button className="btn btn-primary float  -left">
               Go to Recipe
             </button>
           </Link>
-          <Link to="/post">
+          <Link href="/post">
             <button className="btn btn-secondary float-right">
               Post another recipe
             </button>
           </Link>
         </div>
       </Modal>
-      <BannerHeader
-        pageName="Write Recipe"
-        pageDescription={Description}
-        imgPath={image}
-      />
+      <BannerHeader pageName="Write Recipe" pageDescription={Description} />
       <Input
         selectingImg={(e) =>
           setForm({ ...form, selectedImg: e.target.files[0] })

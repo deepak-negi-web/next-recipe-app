@@ -183,7 +183,7 @@ const Input = (props) => {
                             <button
                               type="button"
                               className="btn btn-sm btn-dark"
-                              style={{borderRadius: "25px"}}
+                              style={{ borderRadius: "25px" }}
                               onClick={() => props.addInput("ingredients")}
                             >
                               Add
@@ -211,7 +211,7 @@ const Input = (props) => {
                             <button
                               type="button"
                               className="btn btn-sm btn-dark"
-                              style={{borderRadius: "25px"}}
+                              style={{ borderRadius: "25px" }}
                               onClick={() => props.addInput("steps")}
                             >
                               Add
@@ -226,8 +226,11 @@ const Input = (props) => {
                         {dynamicStepsInput}
                       </div>
                       <div className="col-xs-6 col-sm-8 col-md-10 col-lg-12">
-                        <div className="form-group mt-3">
-                          <button type="submit" className="btn btn-success">
+                        <div className="form-group mt-3 mb-5">
+                          <button
+                            type="submit"
+                            className="btn btn-success w-100"
+                          >
                             Post recipe
                           </button>
                         </div>

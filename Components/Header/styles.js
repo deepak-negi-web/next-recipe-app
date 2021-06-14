@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.div`
   .headerUserLink {
     font-family: "Open Sans", sans-serif;
     color: #2f2d4e;

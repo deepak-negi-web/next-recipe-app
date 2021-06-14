@@ -1,11 +1,7 @@
 import React from "react";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
-import carouselImage1 from "../../../Assests/home/featured1.png";
-import carouselImage2 from "../../../Assests/home/featured2.png";
-import carouselImage3 from "../../../Assests/home/featured3.png";
-import image from "../../../Assests/banner/hero-banner-sm.png";
 import Carousel from "../../Components/UI/Carousel/Carousel";
-const about = (props) => {
+const about = () => {
   const Description = (
     <p>
       From set together our divided own saw divided the form god{" "}
@@ -15,11 +11,7 @@ const about = (props) => {
   );
   return (
     <React.Fragment>
-      <BannerHeader
-        pageName="About Us"
-        pageDescription={Description}
-        imgPath={image}
-      />
+      <BannerHeader pageName="About Us" pageDescription={Description} />
       <section className="about section-margin pb-xl-70">
         <div className="container">
           <div className="row">
@@ -28,13 +20,13 @@ const about = (props) => {
                 <div className="styleBox-border">
                   <img
                     className="styleBox-img1 img-fluid"
-                    src={require("../../../Assests/home/about-img1.png")}
+                    src="/Assests/home/about-img1.png"
                     alt=""
                   />
                 </div>
                 <img
                   className="styleBox-img2 img-fluid"
-                  src={require("../../../Assests/home/about-img2.png")}
+                  src="/Assests/home/about-img2.png"
                   alt=""
                 />
               </div>
@@ -67,11 +59,7 @@ const about = (props) => {
               Fresh taste and great recipes
             </h4>
           </div>
-          <Carousel
-            image1={carouselImage1}
-            image2={carouselImage2}
-            image3={carouselImage3}
-          />
+          <Carousel />
         </div>
       </section>
     </React.Fragment>
