@@ -14,7 +14,11 @@ const bannerHeader = (props) => (
           <div className="sideImage">
             <img
               className="img-fluid"
-              src="/Assests/banner/hero-banner-sm.png"
+              src={
+                props?.imgPath
+                  ? props?.imgPath
+                  : "/Assests/banner/hero-banner-sm.png"
+              }
               alt=""
               style={{ width: "100%", display: "block", height: "auto" }}
             />

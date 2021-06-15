@@ -12,19 +12,18 @@ const home = () => (
             Foods the <br /> most precious things
           </h1>
           <div className="d-sm-flex flex-wrap">
-            <Link className="button button-hero button-shadow" href="/search">
-              <>
+            <Link href="/search">
+              <a className="button button-hero button-shadow">
                 <i className="fas fa-search mr-1" /> Search Recipes
-              </>
+              </a>
             </Link>
-            <Link
-              className="button button-hero button-shadow"
-              href="/post"
-              style={{ marginLeft: "10px" }}
-            >
-              <>
+            <Link href="/post">
+              <a
+                className="button button-hero button-shadow"
+                style={{ marginLeft: "10px" }}
+              >
                 <i className="fas fa-edit mr-1" /> Write Recipes
-              </>
+              </a>
             </Link>
           </div>
           <ThreeDecorIcon />

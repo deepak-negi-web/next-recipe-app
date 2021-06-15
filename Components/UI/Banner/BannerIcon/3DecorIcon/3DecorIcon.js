@@ -43,8 +43,7 @@ const banner = (props) => {
         </li>
         <li>
           <img
-            src={`/Assests/banner/"${props.fullRecipe["genre"]}
-              ".png`}
+            src={`/Assests/banner/${props.fullRecipe["genre"]}.png`}
             alt=""
             style={{
               height: "47px",
