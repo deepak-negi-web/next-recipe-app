@@ -18,7 +18,12 @@ const Search = () => {
       const fetchedData = res.data;
       let id = "";
       for (const [key, recipe] of Object.entries(fetchedData)) {
-        if (recipe["dishname"] === searchQuery.value) {
+        console.log(recipe["dishname"]);
+        if (
+          recipe["dishname"]
+            .toLowerCase()
+            .includes(searchQuery.value.toLowerCase())
+        ) {
           id = key;
           router.push("/recipes/" + id);
           break;

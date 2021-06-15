@@ -1,106 +1,87 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import axios from "../../axios-post";
 import Spinner from "../../Components/UI/Spinner/Spinner";
 
-const FullRecipe = () => {
-  const [loadedRecipe, setLoadedRecipe] = useState(null);
+const Menu = () => {
+  const [recipes, setRecipes] = useState(null);
   const router = useRouter();
-  const { id } = router.query;
   useEffect(() => {
-    if (id) {
-      if (!loadedRecipe || (loadedRecipe && loadedRecipe.id !== +id)) {
-        axios.get("/recipe/" + id + ".json").then((response) => {
-          const responseData = response.data;
-          const updatedResponse = {
-            id: id,
-            ...responseData,
-          };
-          setLoadedRecipe(updatedResponse);
+    axios.get("/recipe.json").then((res) => {
+      const fetchedRecipes = [];
+      for (let key in res.data) {
+        fetchedRecipes.push({
+          id: key,
+          data: res.data[key],
         });
       }
-    }
-  }, [id, loadedRecipe]);
+      setRecipes(fetchedRecipes);
+    });
+  }, []);
 
-  let fetchedRecipe = <Spinner />;
-  if (loadedRecipe) {
-    fetchedRecipe = (
-      <>
-        <BannerHeader
-          pageName={loadedRecipe["dishname"]}
-          pageDescription={loadedRecipe["description"]}
-          imgPath={loadedRecipe["imgURL"]}
-          fullRecipe={{
-            genre: loadedRecipe["genre"],
-            author: loadedRecipe["author"],
-            ingredientCount: loadedRecipe["ingredients"].length,
-            stepsCount: loadedRecipe["steps"].length,
-          }}
-        />
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <section className="section-class">
-                <div
-                  className="col-12"
-                  style={{ marginTop: "8px", marginBottom: "28px" }}
-                >
-                  <h2>Ingredients</h2>
-                  <div className="ingredients-section">
-                    <fieldset className="ingredients-section-fieldset">
-                      <ul>
-                        {loadedRecipe["ingredients"].map(
-                          (ingredient, index) => {
-                            return (
-                              <React.Fragment
-                                key={loadedRecipe["id"] + ingredient + index}
-                              >
-                                <li className="ingredientStyle">
-                                  <span>
-                                    <i className="fas fa-seedling mr-2" />
-                                  </span>
-                                  {ingredient.toUpperCase()}
-                                </li>
-                              </React.Fragment>
-                            );
-                          }
-                        )}
-                      </ul>
-                    </fieldset>
+  const seeFullRecipe = (id) => {
+    window.scrollTo(0, 0);
+    router.push(`/recipes/${id}`);
+  };
+
+  const Description = (
+    <p>
+      A pinch of patience, A dash of kindness, A spoon of
+      <br className="d-none d-xl-block" /> laughter and a heap of love
+    </p>
+  );
+  let menu = <Spinner />;
+  if (recipes) {
+    menu = (
+      <React.Fragment>
+        <BannerHeader pageName="Food Menu" pageDescription={Description} />
+        <section className="section-margin">
+          <div className="container">
+            <div className="section-intro mb-75px">
+              <h4 className="intro-title">Food Recipe Menu</h4>
+              <h2>Delicious food</h2>
+            </div>
+            <div className="row">
+              {recipes.map((recipe) => {
+                return (
+                  <div className="col-lg-6" key={recipe["id"]}>
+                    <div className="media align-items-center food-card">
+                      <img
+                        className="mr-3 mr-sm-4"
+                        src={recipe["data"]["imgURL"]}
+                        alt=""
+                        style={{ width: "99px", height: "99px" }}
+                      />
+                      <div className="media-body">
+                        <div className="d-flex justify-content-between">
+                          <h4>{recipe["data"]["dishname"]}</h4>
+                        </div>
+                        <p>
+                          {recipe["data"]["description"].substring(0, 25)}...
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => seeFullRecipe(recipe["id"])}
+                          className="btn btn-primary"
+                          name="button"
+                        >
+                          See Recipe
+                        </button>
+                        <input type="hidden" name="query" value="Pizza" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </section>
-              <section className="section-class">
-                <h2>Steps to make this recipe</h2>
-                <fieldset className="ingredients-section-fieldset">
-                  <ul>
-                    {loadedRecipe["steps"].map((step, index) => {
-                      return (
-                        <li key={index} className="instruction-section-item">
-                          <span>
-                            <i
-                              className="fas fa-1x fa-check-circle mr-1"
-                              style={{ color: "#2f2d4e" }}
-                            />
-                          </span>
-                          <span>
-                            <strong>Step-{index + 1}</strong>
-                          </span>
-                          <div className="container mt-2 step ">{step}</div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </fieldset>
-              </section>
+                );
+              })}
             </div>
           </div>
-        </div>
-      </>
+        </section>
+      </React.Fragment>
     );
   }
-  return fetchedRecipe;
+
+  return menu;
 };
 
-export default FullRecipe;
+export default Menu;
