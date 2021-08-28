@@ -4,6 +4,7 @@ import Input from "../../Components/UI/Input/Input";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import { storage } from "../../Firebase/index";
 import Modal from "../../Components/UI/Modal/Modal";
+import { SEO } from "../../Components";
 import axios from "../../axios-post";
 
 const Post = () => {
@@ -167,6 +168,11 @@ const Post = () => {
   );
   return (
     <>
+      <SEO
+        title="Post Recipe"
+        desc="Nuskha brings the foods the most precious things,Share your delicious food recipes with others"
+        image="https://firebasestorage.googleapis.com/v0/b/nuskha-your-own-recipe.appspot.com/o/post.png?alt=media&token=32fb6a13-b862-4f93-bc3b-7bb9d0e48d76"
+      />
       <Modal show={form.submit} modalClosed={modalClosedHandler}>
         <div className="container">
           <h3> Submitted </h3>

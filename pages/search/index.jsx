@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import axios from "../../axios-post";
 import Spinner from "../../Components/UI/Spinner/Spinner";
+import { SEO } from "../../Components";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState({
@@ -60,6 +61,11 @@ const Search = () => {
   if (!searchQuery.isClicked) {
     search = (
       <>
+        <SEO
+          title="Search Recipe"
+          desc="Nuskha brings the foods the most precious things,Search the delicious food recipe"
+          image="https://firebasestorage.googleapis.com/v0/b/nuskha-your-own-recipe.appspot.com/o/search.png?alt=media&token=272c05a8-4018-4a17-81bc-0fcaa7fbe91b"
+        />
         <BannerHeader pageName={heading} pageDescription={Description} />
         <section className="blog_area section-margin">
           <div className="container">

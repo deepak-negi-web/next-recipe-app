@@ -1,6 +1,7 @@
 import React from "react";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import Carousel from "../../Components/UI/Carousel/Carousel";
+import { SEO } from "../../Components";
 const about = () => {
   const Description = (
     <p>
@@ -11,6 +12,11 @@ const about = () => {
   );
   return (
     <React.Fragment>
+      <SEO
+        title="About us"
+        desc="Nuskha brings the foods the most precious things,We speak the good food language"
+        image="https://firebasestorage.googleapis.com/v0/b/nuskha-your-own-recipe.appspot.com/o/about.png?alt=media&token=46bc83ea-7336-4a31-adf4-6d76903c69f6"
+      />
       <BannerHeader pageName="About Us" pageDescription={Description} />
       <section className="about section-margin pb-xl-70">
         <div className="container">

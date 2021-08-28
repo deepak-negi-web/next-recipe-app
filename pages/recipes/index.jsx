@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import axios from "../../axios-post";
 import Spinner from "../../Components/UI/Spinner/Spinner";
+import { SEO } from "../../Components";
 
 const Menu = () => {
   const [recipes, setRecipes] = useState(null);
@@ -81,7 +82,16 @@ const Menu = () => {
     );
   }
 
-  return menu;
+  return (
+    <>
+      <SEO
+        title="Recipes"
+        desc="Nuskha brings the foods the most precious things,Enjoy the delicious food recipe"
+        image="https://firebasestorage.googleapis.com/v0/b/nuskha-your-own-recipe.appspot.com/o/recipes.png?alt=media&token=5243713d-ee11-4a06-8945-c42ad3a58b30"
+      />
+      {menu}
+    </>
+  );
 };
 
 export default Menu;

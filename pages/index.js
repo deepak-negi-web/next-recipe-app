@@ -1,10 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import { SEO } from "../Components";
 import { SocialIcon, ThreeDecorIcon } from "../Components/UI/Banner/BannerIcon";
 import Link from "next/link";
 
 const home = () => (
   <>
+    <SEO
+      title="Home"
+      desc="Nuskha brings the foods the most precious things"
+      image="https://firebasestorage.googleapis.com/v0/b/nuskha-your-own-recipe.appspot.com/o/home.png?alt=media&token=2a36b0cc-f252-456c-840c-d8c0a45bbb52"
+    />
+
     <section className="hero-banner">
       <div className="hero-wrapper">
         <div className="hero-left">
