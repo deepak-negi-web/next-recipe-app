@@ -7,6 +7,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Nuskha</title>
+        <link rel="icon" href="/Assests/favicon.jpg" sizes="32x32" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
