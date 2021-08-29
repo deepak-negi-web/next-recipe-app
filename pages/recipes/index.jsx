@@ -8,7 +8,6 @@ const Menu = ({ recipes = [] }) => {
   const router = useRouter();
 
   const seeFullRecipe = (id) => {
-    window.scrollTo(0, 0);
     router.push(`/recipes/${id}`);
   };
 
