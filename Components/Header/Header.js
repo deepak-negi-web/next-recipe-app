@@ -6,6 +6,7 @@ import { useAuth } from "../../contexts/authContext";
 import { StyledHeader } from "./styles.js";
 
 const Header = () => {
+  const [session, loading] = useSession();
   const { currentUser, logout } = useAuth();
   const { pathname } = useRouter();
   return (
@@ -91,62 +92,65 @@ const Header = () => {
                       </a>
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link href="/post">
-                      <a
-                        className={
-                          pathname === "/post"
-                            ? "nav-link activeLink"
-                            : "nav-link"
-                        }
-                      >
-                        <i className="fas fa-edit mr-1" /> Write Recipe
-                      </a>
-                    </Link>
-                  </li>
-                  {currentUser ? (
-                    <li className="nav-item">
-                      <div className="headerUserLink">
-                        <div className="btn-group">
-                          <p
-                            className=" dropdown-toggle dropdown"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
+                  {session && (
+                    <>
+                      <li className="nav-item">
+                        <Link href="/post">
+                          <a
+                            className={
+                              pathname === "/post"
+                                ? "nav-link activeLink"
+                                : "nav-link"
+                            }
                           >
-                            <i className="fas fa-user-alt mr-1" />
-                            {currentUser.displayName}
-                          </p>
-                          <div
-                            className="dropdown-menu"
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <Link
-                              className="dropdown-item"
-                              href="/updateProfile"
+                            <i className="fas fa-edit mr-1" /> Write Recipe
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <div className="headerUserLink">
+                          <div className="btn-group">
+                            <p
+                              className=" dropdown-toggle dropdown"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
                             >
-                              <a
-                                className={
-                                  pathname === "/updateProfile"
-                                    ? "nav-link activeLink"
-                                    : "nav-link"
-                                }
+                              <i className="fas fa-user-alt mr-1" />
+                              {session?.user?.name || "N/A"}
+                            </p>
+                            <div
+                              className="dropdown-menu"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <Link href="/updateProfile">
+                                <button
+                                  className={
+                                    pathname === "/updateProfile"
+                                      ? "dropdown-item activeLink"
+                                      : "dropdown-item"
+                                  }
+                                >
+                                  <i className="fas fa-user-cog mr-1" />
+                                  Update Profile
+                                </button>
+                              </Link>
+                              <button
+                                className="dropdown-item"
+                                onClick={() => signOut("google")}
                               >
-                                <i className="fas fa-user-cog mr-1" />
-                                Update Profile
-                              </a>
-                            </Link>
-                            <button className="dropdown-item" onClick={logout}>
-                              <i className="fas fa-sign-out-alt mr-1" />
-                              Log out
-                            </button>
+                                <i className="fas fa-sign-out-alt mr-1" />
+                                Log out
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </li>
-                  ) : (
+                      </li>
+                    </>
+                  )}
+                  {!session && !loading && (
                     <li className="nav-item">
-                      <Link href="/api/auth/">
+                      <Link href="/login">
                         <a
                           className={
                             pathname === "/login"

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signIn, getSession } from "next-auth/client";
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../../contexts/authContext";
 import Spinner from "../../Components/UI/Spinner/Spinner";
@@ -41,6 +42,15 @@ export default function Login() {
       setLoading(false);
     }
   };
+  React.useEffect(() => {
+    const securePage = async () => {
+      const session = await getSession();
+      if (session) {
+        router.push("/");
+      }
+    };
+    securePage();
+  }, []);
 
   if (loading) return <Spinner />;
 
@@ -54,7 +64,13 @@ export default function Login() {
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
-            <div className="googleCard" onClick={loginWithGoogle}>
+            <div
+              className="googleCard"
+              onClick={(e) => {
+                e.preventDefault();
+                signIn("google");
+              }}
+            >
               <div className="row ">
                 <div className="col-md-12">
                   <button className="btn btn-lg btn-google btn-block  btn-outline">

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { getSession } from "next-auth/client";
 import Input from "../../Components/UI/Input/Input";
+import Spinner from "../../Components/UI/Spinner/Spinner";
 import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
 import { storage } from "../../Firebase/index";
 import Modal from "../../Components/UI/Modal/Modal";
@@ -8,6 +11,8 @@ import { SEO } from "../../Components";
 import axios from "../../axios-post";
 
 const Post = () => {
+  const [isSessionLoading, setIsSessionLoading] = useState(true);
+  const router = useRouter();
   const [form, setForm] = useState({
     selectedImg: null,
     uploadedImgURL: "",
@@ -158,6 +163,22 @@ const Post = () => {
       });
     }
   };
+
+  React.useEffect(() => {
+    const securePage = async () => {
+      const session = await getSession();
+      if (!session) {
+        router.push("/login");
+      } else {
+        setIsSessionLoading(false);
+      }
+    };
+    securePage();
+  }, []);
+
+  if (isSessionLoading) {
+    return <Spinner />;
+  }
 
   const Description = (
     <p>
