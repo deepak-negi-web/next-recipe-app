@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/auth.css";
 import Head from "next/head";
 import { Header } from "../Components";
 import { AuthProvider } from "../contexts/authContext";
