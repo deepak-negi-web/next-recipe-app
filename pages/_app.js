@@ -1,3 +1,4 @@
+import { Provider } from "next-auth/client";
 import "../styles/globals.css";
 import "../styles/auth.css";
 import Head from "next/head";
@@ -55,8 +56,10 @@ function MyApp({ Component, pageProps }) {
         <script src="/main.js"></script>
       </Head>
       <AuthProvider>
-        <Header />
-        <Component {...pageProps} />
+        <Provider session={pageProps.session}>
+          <Header />
+          <Component {...pageProps} />
+        </Provider>
       </AuthProvider>
     </>
   );

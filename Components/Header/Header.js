@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/client";
 import { useAuth } from "../../contexts/authContext";
 import { StyledHeader } from "./styles.js";
 
@@ -145,7 +146,7 @@ const Header = () => {
                     </li>
                   ) : (
                     <li className="nav-item">
-                      <Link href="/login">
+                      <Link href="/api/auth/">
                         <a
                           className={
                             pathname === "/login"
