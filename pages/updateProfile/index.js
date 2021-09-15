@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import { useSession } from "next-auth/client";
 import { useAuth } from "../../contexts/authContext";
-import Spinner from "../../Components/UI/Spinner/Spinner";
+import { Spinner } from "../../Components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

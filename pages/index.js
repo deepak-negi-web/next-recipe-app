@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { SEO } from "../Components";
-import { SocialIcon, ThreeDecorIcon } from "../Components/UI/Banner/BannerIcon";
+import { SEO, SocialIcon, ThreeDecorIcon } from "../Components";
 import Link from "next/link";
 
 const home = () => (
@@ -42,9 +41,8 @@ const home = () => (
                 className="img-fluid"
                 src="/Assests/banner/hero-banner-sm.png"
                 alt="hero"
-                height={500}
-                width={500}
-                layout="fixed"
+                layout="fill"
+                objectFit="cover"
               />
             </div>
           </div>

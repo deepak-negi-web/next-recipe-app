@@ -1,4 +1,4 @@
 import BannerHeader from "./BannerHeader/BannerHeader";
-import BannerIcon from "./BannerIcon";
+import { ThreeDecorIcon, SocialIcon } from "./BannerIcon";
 
-export { BannerHeader, BannerIcon };
+export { BannerHeader, ThreeDecorIcon, SocialIcon };

@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import { signIn, getSession } from "next-auth/client";
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../../contexts/authContext";
-import Spinner from "../../Components/UI/Spinner/Spinner";
+import { Spinner } from "../../Components";
+import Image from "next/image";
 
 export default function Login() {
   const router = useRouter();
@@ -74,11 +75,23 @@ export default function Login() {
               <div className="row ">
                 <div className="col-md-12">
                   <button className="btn btn-lg btn-google btn-block  btn-outline">
-                    <img
-                      src="https://img.icons8.com/color/48/000000/google-logo.png"
-                      alt="google icon"
-                    />
-                    Login Using Google
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Image
+                        src="https://img.icons8.com/color/32/000000/google-logo.png"
+                        alt="google icon"
+                        width={32}
+                        height={32}
+                      />
+                      <span style={{ marginLeft: "8px", fontSize: "18px" }}>
+                        Login Using Google
+                      </span>
+                    </div>
                   </button>
                 </div>
               </div>

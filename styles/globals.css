@@ -2602,6 +2602,9 @@ transform: translateY(-50%)
 .sideImage {
   padding: 16px;
   box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  height: 420px;
 }
 
 @media (max-width: 414px) {

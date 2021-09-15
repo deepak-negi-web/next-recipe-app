@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/client";
-import Input from "../../Components/UI/Input/Input";
-import Spinner from "../../Components/UI/Spinner/Spinner";
-import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import { SEO, Input, Spinner, BannerHeader, Modal } from "../../Components";
 import { storage } from "../../Firebase/index";
-import Modal from "../../Components/UI/Modal/Modal";
-import { SEO } from "../../Components";
 import axios from "../../axios-post";
 
 const Post = () => {

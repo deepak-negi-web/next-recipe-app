@@ -1,5 +1,5 @@
 import React from "react";
-import BannerHeader from "../../../Components/UI/Banner/BannerHeader/BannerHeader";
+import { BannerHeader } from "../../../Components";
 import axios from "../../../axios-post";
 
 const FullRecipe = ({ loadedRecipe }) => {

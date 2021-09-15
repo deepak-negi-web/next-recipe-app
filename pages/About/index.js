@@ -1,7 +1,6 @@
 import React from "react";
-import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
-import Carousel from "../../Components/UI/Carousel/Carousel";
-import { SEO } from "../../Components";
+import { BannerHeader, Carousel, SEO } from "../../Components";
+import Image from "next/image";
 const about = () => {
   const Description = (
     <p>
@@ -22,20 +21,19 @@ const about = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-xl-6 mb-5 mb-md-0 pb-5 pb-md-0 px-4">
-              <div className="img-styleBox">
-                <div className="styleBox-border">
-                  <img
-                    className="styleBox-img1 img-fluid"
-                    src="/Assests/home/about-img1.png"
-                    alt=""
-                  />
-                </div>
-                <img
-                  className="styleBox-img2 img-fluid"
-                  src="/Assests/home/about-img2.png"
-                  alt=""
-                />
-              </div>
+              <Image
+                layout="fill"
+                className="styleBox-img1 img-fluid"
+                src="/Assests/home/about-img1.png"
+                alt=""
+              />
+
+              <Image
+                layout="fill"
+                className="styleBox-img2 img-fluid"
+                src="/Assests/home/about-img2.png"
+                alt=""
+              />
             </div>
             <div className="col-md-6 pl-md-5 pl-xl-0 offset-xl-1 col-xl-5">
               <div className="section-intro mb-lg-4">

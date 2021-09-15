@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const carousel = () => {
   return (
@@ -10,33 +11,39 @@ const carousel = () => {
       </ul>
       <div className="carousel-inner" style={{ display: "block" }}>
         <div className="carousel-item active">
-          <img
-            src="/Assests/home/featured1.png"
-            alt="Los Angeles"
-            style={{ width: "100%", height: "500px" }}
-          />
+          <div style={{ width: "100%", height: "500px", position: "relative" }}>
+            <Image
+              src="/Assests/home/featured1.png"
+              layout="fill"
+              alt="Los Angeles"
+            />
+          </div>
           <div className="carousel-caption">
             <h3 style={{ color: "#eeeeee" }}>Yumm Pizza</h3>
             <p>Love at first bite</p>
           </div>
         </div>
         <div className="carousel-item">
-          <img
-            src="/Assests/home/featured2.png"
-            alt="Chicago"
-            style={{ width: "100%", height: "500px" }}
-          />
+          <div style={{ width: "100%", height: "500px", position: "relative" }}>
+            <Image
+              src="/Assests/home/featured2.png"
+              layout="fill"
+              alt="Chicago"
+            />
+          </div>
           <div className="carousel-caption">
             <h3 style={{ color: "#eeeeee" }}>Delicious Brownies</h3>
             <p>Feeling downie eat a Brownie</p>
           </div>
         </div>
         <div className="carousel-item">
-          <img
-            src="/Assests/home/featured3.png"
-            alt="New York"
-            style={{ width: "100%", height: "500px" }}
-          />
+          <div style={{ width: "100%", height: "500px", position: "relative" }}>
+            <Image
+              src="/Assests/home/featured3.png"
+              layout="fill"
+              alt="New York"
+            />
+          </div>
           <div className="carousel-caption">
             <h3 style={{ color: "#eeeeee" }}>Pumpkin Spice Latte</h3>
             <p>Fresh your day</p>

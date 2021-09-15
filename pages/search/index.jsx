@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import { SEO, BannerHeader, Spinner } from "../../Components";
 import axios from "../../axios-post";
-import Spinner from "../../Components/UI/Spinner/Spinner";
-import { SEO } from "../../Components";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState({

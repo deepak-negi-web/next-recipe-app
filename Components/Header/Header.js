@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { signIn, signOut, useSession } from "next-auth/client";
 import { useAuth } from "../../contexts/authContext";
 import { StyledHeader } from "./styles.js";
+import Image from "next/image";
 
 const Header = () => {
   const [session, loading] = useSession();
@@ -16,10 +17,12 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container box_1620">
               <Link className="navbar-brand logo_h" href="/">
-                <img
+                <Image
                   src="/Assests/Logo1.jpg"
-                  alt=""
-                  style={{ height: "80px", width: "160px" }}
+                  alt="Nuskha-logo"
+                  width={160}
+                  height={80}
+                  placeholder="blur"
                 />
               </Link>
               <button

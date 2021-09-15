@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const banner = (props) => {
   let decorIcon = null;
@@ -31,36 +32,25 @@ const banner = (props) => {
     decorIcon = (
       <ul className="hero-info  d-lg-block">
         <li>
-          <img
+          <Image
             src="/Assests/banner/recipe.png"
             alt=""
-            style={{
-              height: "47px",
-              width: "66px",
-            }}
+            width={66}
+            height={47}
           />
           <h4> By {props.fullRecipe["author"].toUpperCase()} </h4>
         </li>
         <li>
-          <img
+          <Image
             src={`/Assests/banner/${props.fullRecipe["genre"]}.png`}
             alt=""
-            style={{
-              height: "47px",
-              width: "66px",
-            }}
+            width={66}
+            height={47}
           />
           <h4> {props.fullRecipe["genre"]} </h4>
         </li>
         <li>
-          <img
-            src="/Assests/banner/star.png"
-            alt=""
-            style={{
-              height: "47px",
-              width: "66px",
-            }}
-          />
+          <Image src="/Assests/banner/star.png" alt="" width={66} height={47} />
           <h4> {rating}/5 </h4>
         </li>
       </ul>
@@ -69,35 +59,29 @@ const banner = (props) => {
     decorIcon = (
       <ul className="hero-info  d-lg-block">
         <li>
-          <img
+          <Image
             src="/Assests/banner/fas-service-icon.png"
             alt=""
-            style={{
-              height: "37px",
-              width: "46px",
-            }}
+            width={46}
+            height={37}
           />
           <h4> Post recipe </h4>
         </li>
         <li>
-          <img
+          <Image
             src="/Assests/banner/recipe.png"
             alt=""
-            style={{
-              height: "37px",
-              width: "46px",
-            }}
+            width={46}
+            height={37}
           />
           <h4> Fresh & New Recipes </h4>
         </li>
         <li>
-          <img
+          <Image
             src="/Assests/banner/Lunch.png"
             alt=""
-            style={{
-              height: "37px",
-              width: "46px",
-            }}
+            width={46}
+            height={37}
           />
           <h4> Learn cooking </h4>
         </li>

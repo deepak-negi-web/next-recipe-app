@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
-import BannerHeader from "../../Components/UI/Banner/BannerHeader/BannerHeader";
+import { SEO, BannerHeader } from "../../Components";
 import axios from "../../axios-post";
-import { SEO } from "../../Components";
+import Image from "next/image";
 
 const Menu = ({ recipes = [] }) => {
   const router = useRouter();
@@ -46,11 +46,12 @@ const Menu = ({ recipes = [] }) => {
               return (
                 <div className="col-lg-6" key={recipe["id"]}>
                   <div className="media align-items-center food-card">
-                    <img
+                    <Image
                       className="mr-3 mr-sm-4"
                       src={recipe["data"]["imgURL"]}
                       alt=""
-                      style={{ width: "99px", height: "99px" }}
+                      width={99}
+                      height={99}
                     />
                     <div className="media-body">
                       <div className="d-flex justify-content-between">
